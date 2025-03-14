@@ -1,0 +1,36 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Profile</title>
+  </head>
+  <body>
+    <h1>Profile:</h1>
+  <form method='POST' action={%url 'profile'%}>
+    {% csrf_token %}
+    <input type:text name="name" placeholder="Enter your name" />
+    <input type:text name = "contact" placeholder="enter your mobile number" />
+    <input type:text name = "address" placeholder="enter your Address" />
+    <label for = "department">Department:</label>
+    <Select name="department">
+          <option value="bca">BCA</option>
+          <option value="ba">BA</option>
+          <option value="bba">BBA</option>
+          <option value="bcom">BCOM</option>
+    </Select>
+    <button type="submit">Submit</button>
+  </form>
+  <h2>Profile's Registered</h2>
+       <ul>
+       {%for data in stored_data%}
+       <li>name: {{data.name}}</li>
+       <li>contact: {{data.contact}}</li>
+       <li>address: {{data.address}}</li>
+       <li>department: {{data.department}}</li>
+       <li>email: {{data.email}}</li>
+       <br />
+       {%empty%}
+       <li>nothing stored yet<li>
+      {%endfor%}
+       </ul>
+  </body>
+</html>

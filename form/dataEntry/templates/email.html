@@ -1,0 +1,14 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Profile</title>
+  </head>
+  <body>
+    <h1>email: <h1>
+      <form method="POST">
+        {% csrf_token %}
+         <input type="text" name="email" placeholder="enter your email" />
+         <button type="submit">Update email</button>
+      </form>
+  </body>
+</html>

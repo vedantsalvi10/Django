@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Profile</title>
+  </head>
+  <body>
+    <h1>Profile:</h1>
+  <h2>Profile of  {{data.name}}</h2>
+       <ul>
+       <li>name: {{data.name}}</li>
+       <li>contact: {{data.contact}}</li>
+       <li>address: {{data.address}}</li>
+       <li>department: {{data.department}}</li>
+       <li>email:{{data.email}}</li>
+      </ul>
+  <form action="/profile/{{ data.id}}/email">
+      {% csrf_token %}
+      <button type="submit">Update email</button>
+  
+  </form> 
+  </body> 
+</html>
