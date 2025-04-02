@@ -21,12 +21,12 @@ def register_user(request):
 def login_user(request):
   if request.method == "POST":
    data = json.loads(request.body)
-   username = data.get("username")
-   password = data.get("password")
-   
-   user = authenticate(username= username, password = password)
+   print(data["username"], data["password"])
+  #  user = authenticate(request, username= data["username"], password = data["password"])
+   user = User.objects.filter(username = data["username"],password = data["password"]).first()
+   print(user)
    if user is None:
-     return JsonResponse({"failed": username}, status=404)
+     return JsonResponse({"failed" : data["username"]}, status=404)
    else:
      login(request,user)
      request.session.save()
@@ -35,7 +35,8 @@ def login_user(request):
     
   else: 
     return JsonResponse({'message': "invalid method"}, status=404)
-  
+
+@csrf_exempt  
 @login_required
 def protected_view(request):
   return JsonResponse({"message": "userlogged in successfully"}, status= 200)
