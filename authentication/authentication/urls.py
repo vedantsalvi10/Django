@@ -1,5 +1,5 @@
 """
-URL configuration for EcommerceApp project.
+URL configuration for authentication project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.1/topics/http/urls/
@@ -15,18 +15,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
-from django.conf import settings
-from django.conf.urls.static import static
-from user_registraion import views
+from django.urls import path
+from auth import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',views.login_user, name = 'login'),
-    path('logout/',views.logout_user, name = 'logout'),
-    path('register/',views.register_user, name='register'),
-    path('vedant_store/',include('product.urls')),
-    path('vedant_store/',include('product_cart.urls')),
-    path('vedant_store/',include('product_order.urls')),
+    path('register_user/', views.register_user, name = "register_user"),
+    path('login_user/', views.login_user, name = "login_user"),
+    path('home/', views.home, name = "home"),
 ]
-if settings.DEBUG:
-      urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

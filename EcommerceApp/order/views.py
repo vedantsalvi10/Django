@@ -2,12 +2,9 @@
 from django.contrib.auth.models import User
 from .serializers import OrderSerializer
 from django.views.decorators.csrf import csrf_exempt
-from django.http import JsonResponse
-from ecommerce.models import Product
-from product_cart.models import Cart
+from user_registraion.models import Product
+from cart.models import Cart
 from .models import Order
-import json
-from product_cart.serializers import CartSerializer
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -18,16 +15,23 @@ order has two views:
 1) to place for the entire cart
 2) to place order for a specific_product
 
-1) order_cart:
+1) order:
 It has 3 request call: "POST","GET","DELETE"
 It itterates through the entire cart for a particular user and places order for each product
 models used: Cart, User, Order
 serializer used: OrderSerializer
 """
+"""
+2)order_specific_product:
+It places order for a specific user. It is used when the user does not want to use cart
+requests called: "POST","GET","DELETE"
+models used: User, Order
+serializer used : OrderSerializer
+"""
 @login_required
 @csrf_exempt
 @api_view(["POST","GET","DELETE"])
-def order_cart(request):
+def order(request):
   if request.method == "POST":
     user = User.objects.get(id = request.user.id)
     cart_product = Cart.objects.filter(user = user)
@@ -48,13 +52,7 @@ def order_cart(request):
     return Response({"message":"no order placed"},status = 200)
   serialize_order = OrderSerializer(order, many = True).data
   return Response(serialize_order, status = 200)
-  """
-  2)order_specific_product:
-  It places order for a specific user. It is used when the user does not want to use cart
-  requests called: "POST","GET","DELETE"
-  models used: User, Order
-  serializer used : OrderSerializer
-  """
+  
 @login_required
 @csrf_exempt
 @api_view(["POST","GET","DELETE"])

@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from ecommerce.models import Product
+from user_registraion.models import Product
 # Create your models here.
 
 

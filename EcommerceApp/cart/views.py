@@ -2,7 +2,7 @@ import json
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from ecommerce.models import Product
+from user_registraion.models import Product
 from .models import Cart
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required

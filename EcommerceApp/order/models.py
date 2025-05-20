@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 # from product_cart.models import Cart
-from ecommerce.models import Product
+from user_registraion.models import Product
 # Create your models here.
 class Order(models.Model):
   User = models.ForeignKey(User, on_delete=models.CASCADE, related_name='orders')

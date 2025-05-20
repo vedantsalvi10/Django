@@ -1,8 +1,8 @@
 import json
 # the model and serializer for the product is in the ecommerce app
-from ecommerce.serializers import ProductSerialize
+from products_view.serializers import ProductSerialize
 from django.views.decorators.csrf import csrf_exempt
-from ecommerce.models import Product
+from user_registraion.models import Product
 from django.contrib.auth.decorators import login_required
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
