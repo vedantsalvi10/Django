@@ -27,15 +27,40 @@ A simple ecommerce web application built using **Django** that allows users to b
 ```
 EcommerceApp/
 │
-├── Ecommerce/               # Main Django project folder
-│   ├── settings.py
+├── EcommerceApp/               # Main Django project folder
+│   ├── admin.py
 │   └── urls.py
 │
-├── ecommerceapp/            # Core app handling ecommerce logic
-│   ├── views.py             # View functions for pages
-│   ├── models.py            # Database models for products and orders
+├── cart/               # app to handle cart logic
+│   ├── views.py             # View functions for cart
+│   ├── models.py           # Database models for cart
 │   ├── templates/           # HTML templates
-│   └── static/              # CSS & images
+│   ├── serializers.py/      # serializer for cart
+│   └── urls.py
+│
+├── order/            # app to handle orders logic
+│   ├── views.py             # View functions for order
+│   ├── models.py         # Database models for orders
+│   ├── templates/           # HTML templates
+│   ├── serializers.py/    # serializer for orders
+│   └── urls.py
+│
+├── user_registration/            # app to handle user registration and login
+│   ├── views.py             # View functions for user login and registration
+│   ├── models.py         # Database models for user
+│   ├── templates/           # HTML templates
+│   ├── serializers.py/    # serializer for user data
+│   └── urls.py
+│
+├── media/product_images/            # to store images
+│   ├── images            # image storage
+│
+├── product_view/            # app to handle product logic
+│   ├── views.py             # View functions for product
+│   ├── models.py         # Database models for product
+│   ├── templates/           # HTML templates
+│   ├── serializers.py/    # serializer for product
+│   └── urls.py
 │
 └── manage.py                # Django's CLI manager
 ```
@@ -58,20 +83,18 @@ EcommerceApp/
 
 3. **Install dependencies**
    ```bash
-   pip install -r requirements.txt  # (if not present, install django manually)
+   pip install django
    ```
-
-4. **Run the server**
+4. **Install  djangorestframework**
+   ```bash
+   pip install djangorestframework
+   ```
+5. **Run the server**
    ```bash
    python manage.py runserver
    ```
 
 5. **Visit** `http://127.0.0.1:8000/` in your browser
-
----
-
-## 📸 Screenshots  
-*(Add screenshots of the home page, product page, cart, and admin panel here if possible)*
 
 ---
 
