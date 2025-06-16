@@ -16,8 +16,7 @@ A simple ecommerce web application built using **Django** that allows users to b
 ## 🛠️ Tech Stack
 
 - **Backend:** Django, Python  
-- **Frontend:** HTML, CSS, Bootstrap  
-- **Database:** SQLite (Default Django DB)  
+- **Database:** MySQL
 
 ---
 
