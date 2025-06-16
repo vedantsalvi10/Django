@@ -9,7 +9,6 @@ A simple ecommerce web application built using **Django** that allows users to b
 - 🔐 User Authentication (Sign up, Login, Logout)
 - 🛒 Add to Cart & View Cart
 - 📦 Product Listing and Details View
-- 💳 Checkout Process Simulation
 - 🧑‍💻 Admin Interface for Product Management
 
 ---
